@@ -41,5 +41,15 @@ public class model_siswa implements controller_siswa {
             siswa.setLebarKolom();
         }
     }
+
+    @Override
+    public void reset(form_siswa siswa) throws SQLException {
+        siswa.txtNIS.setText("");
+        siswa.txtNama.setText("");
+        siswa.rbLaki.setSelected(true);
+        siswa.cbJurusan.setSelectedIndex(0);
+    }
+    
+    
    
     }
