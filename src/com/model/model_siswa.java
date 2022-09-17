@@ -49,7 +49,43 @@ public class model_siswa implements controller_siswa {
         siswa.rbLaki.setSelected(true);
         siswa.cbJurusan.setSelectedIndex(0);
     }
+
+    @Override
+    public void ubah(form_siswa siswa) throws SQLException {
+        if (siswa.rbLaki.isSelected()) {
+            jk = "Laki-laki";
+        }else{
+            jk = "Perempuan";
+        }
+        try {
+            Connection con = koneksi.getcon();
+            String sql = "UPDATE siswa SET nama=?, jenis_kelamin=?," + "jurusan=? WHERE NIS=?";
+            PreparedStatement prepare = con.prepareStatement (sql);
+            prepare.setString(4, siswa.txtNIS.getText());
+            prepare.setString(1, siswa.txtNama.getText());
+            prepare.setString(2, jk);
+            prepare.setString(3, (String) siswa.cbJurusan.getSelectedItem());
+            prepare.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Berhasil diUbah");
+            prepare.close();
+        } catch (Exception e){
+            System.out.println(e);
+        } finally {
+            Simpan(siswa);
+            siswa.setLebarKolom();
+            baru(siswa);
+        }
+    }
+
+    @Override
+//    public void baru(form_siswa siswa) throws SQLException {
+//       siswa.txtNIS.setText("");
+//        siswa.txtNama.setText("");
+//        siswa.rbLaki.setSelected(true);
+//        siswa.cbJurusan.setSelectedIndex(0);
+//    }
+//    }
     
     
    
-    }
+    
