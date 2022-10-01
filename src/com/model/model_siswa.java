@@ -78,13 +78,18 @@ public class model_siswa implements controller_siswa {
     }
 
     @Override
-//    public void baru(form_siswa siswa) throws SQLException {
-//       siswa.txtNIS.setText("");
-//        siswa.txtNama.setText("");
-//        siswa.rbLaki.setSelected(true);
-//        siswa.cbJurusan.setSelectedIndex(0);
-//    }
-//    }
+    public void baru(form_siswa siswa) throws SQLException {
+       siswa.txtNIS.setText("");
+        siswa.txtNama.setText("");
+        siswa.rbLaki.setSelected(true);
+        siswa.cbJurusan.setSelectedIndex(0);
+    }
+
+    @Override
+    public void kliktabel(form_siswa siswa) throws SQLException {
+        
+    }
+    }
     
     
    
